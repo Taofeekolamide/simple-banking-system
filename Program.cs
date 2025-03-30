@@ -56,28 +56,38 @@
         bool Programed = true;
         while (Programed)
         {
-            Console.WriteLine("=== Simple Banking System ===");
-            Console.WriteLine("1. Withdraw \n2. Deposit \n3. Check balance \n4. Exit");
-            Console.Write("\nEnter between the following options : ");
-            int Option = Convert.ToInt32(Console.ReadLine());
-            switch (Option)
+            try
             {
-                case 1:
-                    Withdraw();
-                    break;
-                case 2:
-                    Deposit();
-                    break;
-                case 3:
-                    CheckBalance();
-                    break;
-                case 4:
-                    Programed = false;
-                    break;
-                default:
-                    Console.WriteLine("You have entered a wrong input");
-                    break;
+                Console.WriteLine("=== Simple Banking System ===");
+                Console.WriteLine("1. Withdraw \n2. Deposit \n3. Check balance \n4. Exit");
+                Console.Write("\nEnter between the following options : ");
+                int Option = Convert.ToInt32(Console.ReadLine());
+                switch (Option)
+                {
+                    case 1:
+                        Withdraw();
+                        break;
+                    case 2:
+                        Deposit();
+                        break;
+                    case 3:
+                        CheckBalance();
+                        break;
+                    case 4:
+                        Programed = false;
+                        break;
+                    default:
+                        Console.WriteLine("You have entered a wrong input");
+                        break;
+                }
             }
+            catch (System.Exception e)
+            {
+                Console.WriteLine($"{e.Message} \n");
+                Console.Write("Press any key to continue...");
+                Console.ReadKey();
+            }
+            
         }
     }
 }
